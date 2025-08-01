@@ -35,15 +35,23 @@ const email = ref('')
 const password = ref('')
 
  async function submit() {
+    try {
         const response = await $fetch('/api/user', {
         method: 'POST',
         body: {
             email   :   email.value,
             password:   password.value,
-        }
-    })
+            }
+        })
 
-    console.log('response', response);
+        console.log('response', response);
+    } catch (error) {
+        console.log("ERROR:");
+        console.log(error.response?._data?.message);
+        
+    }
+
+    
  }
 </script>
 
