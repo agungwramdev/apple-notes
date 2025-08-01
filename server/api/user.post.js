@@ -28,7 +28,7 @@ export default defineEventHandler(async (event) =>  {
         if (error.code === 'P2002') {
             throw createError({
                 statusCode: 409,
-                message: 'an email with this address already exists.'
+                message: 'User Dengan Email ini Sudah Terdaftar!'
             })
         }
         

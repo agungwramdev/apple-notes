@@ -31,6 +31,8 @@
 </template>
 
 <script setup>
+import Swal from 'sweetalert2'
+
 const email = ref('')
 const password = ref('')
 
@@ -46,8 +48,13 @@ const password = ref('')
 
         console.log('response', response);
     } catch (error) {
-        console.log("ERROR:");
-        console.log(error.response?._data?.message);
+        const errorMessage = error.response?._data?.message
+        Swal.fire({
+            title: 'Error',
+            text: errorMessage,
+            icon: 'error',
+            confirmButtonText: 'OK'
+        })
         
     }
 
