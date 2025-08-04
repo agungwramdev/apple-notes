@@ -46,6 +46,13 @@ const password = ref('')
             }
         })
 
+        Swal.fire({
+            title: 'Success!',
+            text: "Akun telah berhasil dibuat.",
+            icon: 'success',
+            confirmButtonText: 'OK'
+        })
+
         console.log('response', response);
     } catch (error) {
         const errorMessage = error.response?._data?.message
